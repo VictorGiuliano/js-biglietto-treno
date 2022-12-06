@@ -28,20 +28,20 @@ const tariffa = 0.21;
 
 //3.
 let costo = kmUser * tariffa;
-//console.log(costoBase);
+//console.log(costo);
 
 //4.
 let costoScontato;
-let sconto = 0.20;
+let sconto = (costo * 20 ) /100;
 
 if(isNaN(kmUser) || isNaN(ageUser)){
     alert ("Devi inserire un numero");
 } else {
     if(ageUser < 18){
-        costoScontato = costo - sconto;
+        costo = costo - sconto;
     }else if(ageUser > 65){
-        sconto = 0.40;
-        costoScontato = costo - sconto;
+        sconto = (costo * 40) /100;
+        costo = costo - sconto;
     }   
     console.log(costoScontato);
 }
