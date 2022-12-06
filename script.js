@@ -14,6 +14,9 @@ per indicare centesimi sul prezzo). Questo richiederà un minimo di ricerca.*/
 4.Calcolo dello prezzo finale
 */
 
+
+const totalElement = document.getElementById('information');
+const message = 'Il totale del tuo biglietto è :';
 //1.
 const kmUser = parseInt(prompt('Quanti km devi percorrere?').trim());
 //console.log(kmUser);
@@ -24,25 +27,25 @@ const ageUser = parseInt(prompt('Quanti hanni hai?', 23).trim());
 const tariffa = 0.21;
 
 //3.
-const costoBase = kmUser * tariffa;
+let costo = kmUser * tariffa;
 //console.log(costoBase);
 
 //4.
 let costoScontato;
-let sconto = 25 / 100;
+let sconto = 0.20;
 
 if(isNaN(kmUser) || isNaN(ageUser)){
     alert ("Devi inserire un numero");
 } else {
-    if(ageUser <= 18){
-        costoScontato = costoBase - sconto;
+    if(ageUser < 18){
+        costoScontato = costo - sconto;
     }else if(ageUser > 65){
-        sconto = 40 / 100;
-        costoScontato = costoBase - sconto;
+        sconto = 0.40;
+        costoScontato = costo - sconto;
     }   
     console.log(costoScontato);
 }
 
-
+totalElement.innerText = message + costo.toFixed(2) + '€ ' ;
 
 
